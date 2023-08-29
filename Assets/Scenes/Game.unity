@@ -9039,7 +9039,7 @@ MonoBehaviour:
   previousState: 0
   pauseScreen: {fileID: 553380861}
   resultsScreen: {fileID: 180104796}
-  levelUpScreen: {fileID: 0}
+  levelUpScreen: {fileID: 1227702478}
   currentHealthDisplay: {fileID: 2006683192}
   currentRecoveryDisplay: {fileID: 1285433855}
   currentMoveSpeedDisplay: {fileID: 50146994}

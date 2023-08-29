@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogWarning("EXTRA" + this + "DELETED");
+            Destroy(gameObject);
         }
 
 
@@ -72,17 +73,18 @@ public class GameManager : MonoBehaviour
         switch (currentstate)
         {
             case GameState.Gameplay:
-                
+                CheckForPauseAndResume();
                 UpdateStopwatch();
                 break;
             case GameState.Paused:
-
+                CheckForPauseAndResume();
                 break;
             case GameState.GameOver:
                 if (!isGameOver)
                 {
                     isGameOver = true;
                     Time.timeScale = 0f;
+                    Debug.Log("Game OVER");
                     DisplayResults();
                 }
                 break;
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
                 {
                     choosingUpgrade = true;
                     Time.timeScale = 0f;
+                    Debug.Log("Upgrades shown");
                     levelUpScreen.SetActive(true);
                 }
                 break;
@@ -116,9 +119,8 @@ public class GameManager : MonoBehaviour
             ChangeState(GameState.Paused);
             pauseScreen.SetActive(true);
             Time.timeScale = 0f;
+            Debug.Log("Game is paused");
         }
-
-       
     }
 
     public void ResumGame()
@@ -128,8 +130,24 @@ public class GameManager : MonoBehaviour
             ChangeState(previousState);
             Time.timeScale = 1f;
             pauseScreen.SetActive(false);
+            Debug.Log("Game is resumed");
         }
     }
+    void CheckForPauseAndResume()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (currentstate == GameState.Paused)
+            {
+                ResumGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }        
+    }
+
    void DisableScreens()
     {
         pauseScreen.SetActive(false);
@@ -214,8 +232,7 @@ public class GameManager : MonoBehaviour
     {
         choosingUpgrade = false;
         Time.timeScale = 1f;
-
-        levelUpScreen.SetActive(true);
+        levelUpScreen.SetActive(false);
         ChangeState(GameState.Gameplay);
     }
 }
