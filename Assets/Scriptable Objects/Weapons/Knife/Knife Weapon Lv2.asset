@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb9463376b88b04b903bc923e0cf058, type: 3}
   m_Name: Knife Weapon Lv2
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2803702332969457894, guid: fe6c9711e231fb54db2fc6d6f09f6e48, type: 3}
+  prefab: {fileID: 2803702332969457894, guid: f8940f13ed12d5e4a99e2babde280463, type: 3}
   damage: 10
   speed: 10
   cooldownDuration: 2
