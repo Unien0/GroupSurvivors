@@ -24,7 +24,7 @@ public class InventoryManager : MonoBehaviour
     public class PassiveItemUpGrade
     {
         public GameObject initialPassiveItem;
-        public WeaponScriptableObject passiveItemData;
+        public PassiveItemScriptableObject passiveItemData;
     }
 
     [System.Serializable]

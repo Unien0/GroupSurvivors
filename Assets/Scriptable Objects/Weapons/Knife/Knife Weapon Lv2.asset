@@ -19,4 +19,6 @@ MonoBehaviour:
   pierce: 1
   level: 2
   nextLevelPrefab: {fileID: 0}
+  name: "\u73A9\u5177\u5200"
+  description: "\u671D\u73A9\u5BB6\u9762\u5411\u7684\u5730\u65B9\u4E22\u51FA\uFF0C\u9020\u6210\u5C11\u91CF\u4F24\u5BB3"
   icon: {fileID: 75642449, guid: b651bce332e87474c9e4535a92fb6cb6, type: 3}
