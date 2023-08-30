@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -139,6 +141,13 @@ public class PlayerStats : MonoBehaviour
     public int weaponIndex;
     public int passiveItemIndex;
 
+    [Header("UI")]
+    public Image healthBar;
+    public Image expBar;
+    public TextMeshProUGUI levelText;
+
+
+
     private void Awake()
     {
         characterData = CharacterSelector.GetData();
@@ -168,6 +177,10 @@ public class PlayerStats : MonoBehaviour
         GameManager.instance.currentMagnetDisplay.text = "采集：" + currentMagnet;
 
         GameManager.instance.AssignChosenCharacterUI(characterData);
+
+        UpdataHealthBar();
+        UpdateExpBar();
+        UpdateLevelText();
     }
     private void Update()
     {
@@ -186,7 +199,10 @@ public class PlayerStats : MonoBehaviour
     public void IncreaseExperience(int amount)
     {
         experience += amount;
+
         LevelUpChecker();
+
+        UpdateExpBar();
     }
 
     void LevelUpChecker()
@@ -206,9 +222,21 @@ public class PlayerStats : MonoBehaviour
                 }
                 experienceCap += experienceCapIncrease;
 
+                UpdateLevelText();
+
                 GameManager.instance.StartLevelUp();
             }
         }
+    }
+
+    void UpdateExpBar()
+    {
+        expBar.fillAmount = (float)experience / experienceCap;
+    }
+
+    void UpdateLevelText()
+    {
+        levelText.text = "Lv" + level.ToString();
     }
 
    public void TakeDamage(float dmg)
@@ -223,7 +251,14 @@ public class PlayerStats : MonoBehaviour
             {
                 Kill();
             }
+
+            UpdataHealthBar();
         }
+    }
+
+    void UpdataHealthBar()
+    {
+        healthBar.fillAmount = currentHealth / characterData.MaxHealth;
     }
 
     public void Kill()
