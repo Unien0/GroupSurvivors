@@ -150,11 +150,7 @@ public class GameManager : MonoBehaviour
 
    void DisableScreens()
     {
-        if (pauseScreen != null)
-        {
-            pauseScreen.SetActive(false);
-        }
-        
+        pauseScreen.SetActive(false);        
         resultsScreen.SetActive(false);
         levelUpScreen.SetActive(false);
     }

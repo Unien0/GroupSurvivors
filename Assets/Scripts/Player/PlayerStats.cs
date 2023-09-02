@@ -192,7 +192,6 @@ public class PlayerStats : MonoBehaviour
         {
             isInvincible = false;
         }
-
         Recover();
     }
 
@@ -208,7 +207,7 @@ public class PlayerStats : MonoBehaviour
     void LevelUpChecker()
     {
         if (experience >= experienceCap)
-        {
+        {            
             level++;
             experience -= experienceCap;
 
@@ -218,14 +217,14 @@ public class PlayerStats : MonoBehaviour
                 if (level >= range.startLevel && level <= range.endLevel)
                 {
                     experienceCapIncrease = range.experienceCapIncrease;
+                    
                     break;
                 }
-                experienceCap += experienceCapIncrease;
-
-                UpdateLevelText();
-
-                GameManager.instance.StartLevelUp();
             }
+            experienceCap += experienceCapIncrease;
+                UpdateLevelText();
+                GameManager.instance.StartLevelUp();
+            
         }
     }
 
