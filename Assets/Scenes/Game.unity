@@ -918,7 +918,7 @@ RectTransform:
   - {fileID: 180104797}
   - {fileID: 1227702479}
   m_Father: {fileID: 891678555}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2483,7 +2483,7 @@ RectTransform:
   - {fileID: 1290758922}
   - {fileID: 176744852}
   m_Father: {fileID: 891678555}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -4274,8 +4274,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 170348611}
-  - {fileID: 94937046}
   - {fileID: 540652951}
+  - {fileID: 94937046}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5028,7 +5028,6 @@ MonoBehaviour:
   - {fileID: 2418215655982006689, guid: 912c9f98c09045e4885e39dd7c6abe9c, type: 3}
   player: {fileID: 1574868631}
   checkerRadius: 0.2
-  noTerrainPosition: {x: 0, y: 0, z: 0}
   terrainMask:
     serializedVersion: 2
     m_Bits: 64
