@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +7,7 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public enum GameState
+    public enum GameState//游戏状态
     {
         Gameplay,
         Paused,
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject resultsScreen;
     public GameObject levelUpScreen;
 
-    [Header("Current Stat Displays")]
+    [Header("玩家属性显示UI")]
     public TextMeshProUGUI currentHealthDisplay;
     public TextMeshProUGUI currentRecoveryDisplay;
     public TextMeshProUGUI currentMoveSpeedDisplay;
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI currentProjectileSpeedDisplay;
     public TextMeshProUGUI currentMagnetDisplay;
 
-    [Header("Results Screen Displays")]
+    [Header("玩家数据显示UI")]
     public Image chosenCharacterImage;
     public TextMeshProUGUI chosenCharacterName;
     public TextMeshProUGUI levelReachedDisplay;
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     public List<Image> chosenWeaponsUI = new List<Image>(6);
     public List<Image> chosenPassiveItemsUI = new List<Image>(6);
 
-    [Header("Stopwatch")]
+    [Header("游戏时间")]
     public float timeLimit;
     float stopwatchTime;
     public TextMeshProUGUI stopwatchDisplay;
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance ==null)
+        if (instance ==null)//单例
         {
             instance = this;
         }
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        switch (currentstate)
+        switch (currentstate)//游戏当前状态选择
         {
             case GameState.Gameplay:
                 CheckForPauseAndResume();
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     }
    
-    public void PauseGame()
+    public void PauseGame()//游戏暂停
     {
         if (currentstate != GameState.Paused)
         {
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ResumGame()
+    public void ResumGame()//游戏继续
     {
         if (currentstate == GameState.Paused)
         {
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game is resumed");
         }
     }
-    void CheckForPauseAndResume()
+    void CheckForPauseAndResume()//Esc键盘启动游戏暂停程序
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
     {
         levelReachedDisplay.text = levelReachedData.ToString();
     }
-    public void AssignChosenWeaponsAndPassiveItemUI(List<Image> chosenWeaponsData,List<Image> chosenPassiveItemsData)
+    public void AssignChosenWeaponsAndPassiveItemUI(List<Image> chosenWeaponsData,List<Image> chosenPassiveItemsData)//游戏左上角画面UI显示
     {
         if (chosenWeaponsData.Count != chosenWeaponsUI.Count || chosenPassiveItemsData.Count != chosenPassiveItemsUI.Count)
         {
@@ -205,7 +205,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    void UpdateStopwatch()
+    void UpdateStopwatch()//游戏最长时间检测
     {
         stopwatchTime += Time.deltaTime;
         UpdateStopwatchDisplay();
@@ -214,7 +214,7 @@ public class GameManager : MonoBehaviour
             playerObject.SendMessage("Kill");
         }
     }
-    void UpdateStopwatchDisplay()
+    void UpdateStopwatchDisplay()//游玩时间
     {
         int minutes = Mathf.FloorToInt(stopwatchTime / 60);
         int seconds = Mathf.FloorToInt(stopwatchTime % 60);
@@ -222,13 +222,13 @@ public class GameManager : MonoBehaviour
         stopwatchDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
-    public void StartLevelUp()
+    public void StartLevelUp()//升级调用
     {
         ChangeState(GameState.LevelUP);
         playerObject.SendMessage("RemoveAndApplyUpgrades");
     }
 
-    public void EndLevelUp()
+    public void EndLevelUp()//结束升级调用
     {
         choosingUpgrade = false;
         Time.timeScale = 1f;

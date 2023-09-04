@@ -1,9 +1,10 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ExperienceGem : Pickup,Icollectible
 {
+    //经验值道具
     public int experienceGranted;
 
     public override void Collect()

@@ -1,10 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
+    //敌人状态
     public EnemyScriptableObject enemyData;
+    
 
     //Current stats
     [HideInInspector]

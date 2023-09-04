@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour
 {
     CharacterScriptableObject characterData;
 
-    //Current stats
+    //玩家临时变量
     float currentHealth;
     float currentRecovery;
     float currentMoveSpeed;
@@ -16,7 +16,7 @@ public class PlayerStats : MonoBehaviour
     float currentProjectileSpeed;
     float currentMagnet;
 
-    #region Current Stats Properties
+    #region 调用并显示玩家SO属性数值
     public float CurrentHealth
     {
         get { return currentHealth; }
@@ -117,7 +117,7 @@ public class PlayerStats : MonoBehaviour
 
     //public List<GameObject> spawnedWeapons;
 
-    [Header("Experience/Lecel")]
+    [Header("经验值/等级")]
     public int experience = 0;
     public int level = 1;
     public int experienceCap;
@@ -127,7 +127,7 @@ public class PlayerStats : MonoBehaviour
     {
         public int startLevel;
         public int endLevel;
-        public int experienceCapIncrease;
+        public int experienceCapIncrease;//所需经验值（浮动项，根据当前等级改编）
     }
 
     [Header("I-Frames")]
@@ -135,7 +135,7 @@ public class PlayerStats : MonoBehaviour
     float invincibilityTimer;
     bool isInvincible;
 
-    public List<LevelRange> levelRanges;
+    public List<LevelRange> levelRanges;//等级列表
 
     InventoryManager inventory;
     public int weaponIndex;
@@ -168,7 +168,7 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         experienceCap = levelRanges[0].experienceCapIncrease;
-
+        //绑定esc后出现的数值
         GameManager.instance.currentHealthDisplay.text = "血量：" + currentHealth;
         GameManager.instance.currentRecoveryDisplay.text = "恢复：" + currentRecovery;
         GameManager.instance.currentMoveSpeedDisplay.text = "速度：" + currentMoveSpeed;
@@ -204,7 +204,7 @@ public class PlayerStats : MonoBehaviour
         UpdateExpBar();
     }
 
-    void LevelUpChecker()
+    void LevelUpChecker()//升级鉴定
     {
         if (experience >= experienceCap)
         {            
@@ -228,17 +228,17 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void UpdateExpBar()
+    void UpdateExpBar()//经验值UI显示
     {
         expBar.fillAmount = (float)experience / experienceCap;
     }
 
-    void UpdateLevelText()
+    void UpdateLevelText()//等级UI显示
     {
         levelText.text = "Lv" + level.ToString();
     }
 
-   public void TakeDamage(float dmg)
+   public void TakeDamage(float dmg)//伤害判定
     {
         if (!isInvincible)
         {
@@ -271,7 +271,7 @@ public class PlayerStats : MonoBehaviour
         //Destroy(gameObject);
     }
 
-    public void RestoreHealth(float amount)
+    public void RestoreHealth(float amount)//回血
     {
         if (CurrentHealth < characterData.MaxHealth)
         {
@@ -297,7 +297,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public void SpawnedWeapon(GameObject weapon)
+    public void SpawnedWeapon(GameObject weapon)//武器增加
     {
         if (weaponIndex >= inventory.weaponSlots.Count-1)
         {
@@ -311,7 +311,7 @@ public class PlayerStats : MonoBehaviour
 
         weaponIndex++;
     }
-    public void SpawnedPassiveItem(GameObject passiveItem)
+    public void SpawnedPassiveItem(GameObject passiveItem)//道具增加
     {
         if (passiveItemIndex >= inventory.passiveItemSlots.Count - 1)
         {

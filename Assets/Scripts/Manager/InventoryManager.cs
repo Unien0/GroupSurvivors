@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,10 +6,11 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<WeaponController> weaponSlots = new List<WeaponController>(6);
+    //武器与道具以及相应的升级系统
+    public List<WeaponController> weaponSlots = new List<WeaponController>(6);//玩家武器列表，当前上限为6
     public int[] weaponLevels = new int[6];
     public List<Image> weaponUISlot = new List<Image>(6);
-    public List<PassiveItem> passiveItemSlots = new List<PassiveItem>(6);
+    public List<PassiveItem> passiveItemSlots = new List<PassiveItem>(6);//玩家道具列表，当前上限为6
     public int[] passiveItemLevels = new int[6];
     public List<Image> passiveItemUISlots = new List<Image>(6);
 
@@ -30,7 +31,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     [System.Serializable]
-    public class UpgradeUI
+    public class UpgradeUI//升级相关的UI显示
     {
         public TextMeshProUGUI upgradeNameDisplay;
         public TextMeshProUGUI upgradeDescriptionDisplay;
@@ -49,7 +50,7 @@ public class InventoryManager : MonoBehaviour
         player = GetComponent<PlayerStats>();
     }
 
-    public void AddWeapon(int slotIndex,WeaponController weapon)
+    public void AddWeapon(int slotIndex,WeaponController weapon)//添加武器
     {
         weaponSlots[slotIndex] = weapon;
         weaponLevels[slotIndex] = weapon.weaponData.Level;
@@ -62,7 +63,7 @@ public class InventoryManager : MonoBehaviour
         }
 
     }
-    public void AddPassiveItem(int slotIndex,PassiveItem passiveItem)
+    public void AddPassiveItem(int slotIndex,PassiveItem passiveItem)//添加道具
     {
         passiveItemSlots[slotIndex] = passiveItem;
         passiveItemLevels[slotIndex] = passiveItem.passiveItemData.Level;
@@ -73,7 +74,7 @@ public class InventoryManager : MonoBehaviour
             GameManager.instance.EndLevelUp();
         }
     }
-    public void LevelUpWeapon(int slotIndex,int upgradeIndex)
+    public void LevelUpWeapon(int slotIndex,int upgradeIndex)//武器升级部分，在检测到武器列表中有空的位置时添加，在有重复武器时将其升级覆盖
     {
         if (weaponSlots.Count > slotIndex)
         {
@@ -99,7 +100,7 @@ public class InventoryManager : MonoBehaviour
 
 ;        }
     }
-    public void LevelUpPassiveItem(int slotIndex, int upgradeIndex)
+    public void LevelUpPassiveItem(int slotIndex, int upgradeIndex)//道具升级部分，在检测到道具列表中有空的位置时添加，在有重复道具时将其升级覆盖
     {
         if (passiveItemSlots.Count > slotIndex)
         {
@@ -125,7 +126,7 @@ public class InventoryManager : MonoBehaviour
 
         }
     }
-    void ApplyUpgradeOption()
+    void ApplyUpgradeOption()//武器与道具升级部分
     {
         List<WeaponUpgrade> availableWeaponUpgrades = new List<WeaponUpgrade>(weaponUpgradeOption);
         List<PassiveItemUpGrade> availablePassiveItemUpgrades = new List<PassiveItemUpGrade>(passiveItemUpgradeOption);

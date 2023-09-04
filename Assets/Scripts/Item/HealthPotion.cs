@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HealthPotion : Pickup
 {
+    //ŒŒ•r“¹‹ï
     public int healthToRestore;
 
     public override void Collect()

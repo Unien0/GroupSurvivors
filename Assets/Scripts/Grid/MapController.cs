@@ -1,30 +1,30 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MapController : MonoBehaviour
 {
-    public List<GameObject> terrainChunks;
+    public List<GameObject> terrainChunks;//地块类型，里面放着不同放置物点位的地块，之后可以增加新种类地形
     public GameObject player;
-    public float checkerRadius;
-    public LayerMask terrainMask;
-    public GameObject currentChunk;
-    Vector3 playerLastPosition;
+    public float checkerRadius;//搜索半径，超出一定半径后产生新的地块用
+    public LayerMask terrainMask;//地形遮罩
+    public GameObject currentChunk;//当前地块
+    Vector3 playerLastPosition;//玩家位置，当玩家移动和被推开时候根据相对位置生成新的地块
     //PlayerMovement pm;
 
     [Header("Optimization")]
-    public List<GameObject> spawnedChunks;
-    GameObject latestChunk;
-    public float maxOpDist; //Must be greater than the length and width of the tilemap
+    public List<GameObject> spawnedChunks;//增加的地块
+    GameObject latestChunk;//最新的地块
+    public float maxOpDist; //地块上限，超过一定数值时将最旧地块删除
     float opDist;
-    float optimizerCooldown;
-    public float optimizerCooldownDur;
+    float optimizerCooldown;//优化
+    public float optimizerCooldownDur;//优化CD
 
 
 
     void Start()
     {
-        playerLastPosition = player.transform.position;
+        playerLastPosition = player.transform.position;//玩家相对位置
     }
 
     void Update()
@@ -45,7 +45,7 @@ public class MapController : MonoBehaviour
         string directionName = GetDirectionName(moveDir);
 
         CheckAndSpawnChunk(directionName);
-        if (directionName.Contains("Up"))
+        if (directionName.Contains("Up"))//根据玩家移动方向设置相应点位的地块
         {
             CheckAndSpawnChunk("Up");
         }
@@ -74,7 +74,7 @@ public class MapController : MonoBehaviour
     string GetDirectionName(Vector3 direction)
     {
         direction = direction.normalized;
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))//地块和方向的检测
         {
             if (direction.y>0.5f)
             {
