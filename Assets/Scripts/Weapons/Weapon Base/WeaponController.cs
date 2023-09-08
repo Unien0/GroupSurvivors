@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,9 +17,12 @@ public class WeaponController : MonoBehaviour
     protected virtual void Start()
     {
         pm = FindObjectOfType<PlayerMovement>();
-        currentCooldown = weaponData.CooldownDuration; //At the start set the current cooldown to be cooldown duration
+        currentCooldown = weaponData.CooldownDuration; //绑定武器CD
     }
 
+    /// <summary>
+    /// 攻击CD
+    /// </summary>
     protected virtual void Update()
     {
         currentCooldown -= Time.deltaTime;

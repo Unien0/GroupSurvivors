@@ -4009,6 +4009,51 @@ Transform:
   m_Father: {fileID: 93825571}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &840141263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 840141265}
+  - component: {fileID: 840141264}
+  m_Layer: 0
+  m_Name: FranerateLinitSample
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &840141264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840141263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da7a9567801c8c84598b9488571c0d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limitType: 60
+--- !u!4 &840141265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840141263}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &884212085
 GameObject:
   m_ObjectHideFlags: 0
@@ -6188,7 +6233,7 @@ GameObject:
   - component: {fileID: 1286485656}
   - component: {fileID: 1286485658}
   - component: {fileID: 1286485657}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7707,7 +7752,7 @@ GameObject:
   - component: {fileID: 1545175790}
   - component: {fileID: 1545175789}
   - component: {fileID: 1545175788}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7789,7 +7834,7 @@ GameObject:
   - component: {fileID: 1574868637}
   - component: {fileID: 1574868639}
   - component: {fileID: 1574868640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: '!Player'
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -9019,7 +9064,7 @@ GameObject:
   - component: {fileID: 1805192518}
   - component: {fileID: 1805192517}
   - component: {fileID: 1805192516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Health Bar Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,15 +1,15 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Base script of all projectile behaviours [To be placed on a prefab of a weapon that is a projectile]
+/// 投掷物与子弹的基本逻辑
 /// </summary>
 public class ProjectileWeaponBehaviour : MonoBehaviour
 {
     public WeaponScriptableObject weaponData;
 
-    protected Vector3 direction;
+    protected Vector3 direction;//方向
 
     public float destroyAfterSeconds;
 
@@ -17,7 +17,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
     protected float currentDamage;
     protected float currentSpeed;
     protected float currentCooldownDuration;
-    protected int currentPierce;
+    protected int currentPierce;//子弹穿透次数
 
     void Awake()
     {
@@ -37,6 +37,10 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
         Destroy(gameObject, destroyAfterSeconds);
     }
 
+    /// <summary>
+    /// 设置攻击方向
+    /// </summary>
+    /// <param name="dir"></param>
     public void DirectionChecker(Vector3 dir)
     {
         direction = dir;
@@ -47,6 +51,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
         Vector3 scale = transform.localScale;
         Vector3 rotation = transform.rotation.eulerAngles;
 
+        //八向子弹
         if (dirx < 0 && diry == 0) //left
         {
             scale.x = scale.x * -1;

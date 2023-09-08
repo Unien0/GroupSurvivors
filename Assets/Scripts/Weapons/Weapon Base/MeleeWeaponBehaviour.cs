@@ -1,17 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Base script of all melee behaviours [To be placed on a prefab of a weapon that is melee]
+/// 近战武器的基础脚本
 /// </summary>
 public class MeleeWeaponBehaviour : MonoBehaviour
 {
     public WeaponScriptableObject weaponData;
 
-    public float destroyAfterSeconds;
+    public float destroyAfterSeconds;//X秒后销毁物品
 
-    //Current stats
+    //临时变量
     protected float currentDamage;
     protected float currentSpeed;
     protected float currentCooldownDuration;
@@ -19,6 +19,7 @@ public class MeleeWeaponBehaviour : MonoBehaviour
 
     void Awake()
     {
+        //绑定临时变量
         currentDamage = weaponData.Damage;
         currentSpeed = weaponData.Speed;
         currentCooldownDuration = weaponData.CooldownDuration;
@@ -27,7 +28,7 @@ public class MeleeWeaponBehaviour : MonoBehaviour
 
     public float GetCurrentDamge()
     {
-        return currentDamage *= FindObjectOfType<PlayerStats>().CurrentMight;
+        return currentDamage *= FindObjectOfType<PlayerStats>().CurrentMight;//伤害量*力量加成
     }
 
     protected virtual void Start()
@@ -40,7 +41,7 @@ public class MeleeWeaponBehaviour : MonoBehaviour
         if (col.CompareTag("Enemy"))
         {
             EnemyStats enemy = col.GetComponent<EnemyStats>();
-            enemy.TakeDamage(GetCurrentDamge());
+            enemy.TakeDamage(GetCurrentDamge());//造成伤害
         }
         else if (col.CompareTag("Prop"))
         {
