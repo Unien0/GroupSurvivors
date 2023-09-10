@@ -16,8 +16,12 @@ public class EnemyStats : MonoBehaviour
     [HideInInspector]
     public float currentDamage;
 
+    public bool isDead;
+
     public float despawnDistance = 20f;
     Transform player;
+
+    Animator anim;
 
     void Awake()
     {
@@ -25,6 +29,8 @@ public class EnemyStats : MonoBehaviour
         currentMoveSpeed = enemyData.MoveSpeed;
         currentHealth = enemyData.MaxHealth;
         currentDamage = enemyData.Damage;
+
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -46,13 +52,16 @@ public class EnemyStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Kill();
+            gameObject.layer = 9;
+            isDead = true;
+            anim.SetBool("Dead", true);
+            //Kill();
         }
     }
 
     public void Kill()
     {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
     private void OnCollisionStay2D(Collision2D col)
