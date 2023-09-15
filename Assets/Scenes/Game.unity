@@ -7892,7 +7892,7 @@ Animator:
   m_GameObject: {fileID: 1573264711}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: df14de0fe2d288649a289e7dda402f85, type: 2}
+  m_Controller: {fileID: 9100000, guid: 62d14340e726a91438ec51b5ad341816, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7944,7 +7944,7 @@ SpriteRenderer:
   m_SortingLayerID: -244332299
   m_SortingLayer: 4
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 720e9053bfda11840870eb458d875ae3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1a5f3ad5e93744448b4b678ff20a79f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7999,6 +7999,7 @@ MonoBehaviour:
   currentMoveSpeed: 0
   currentHealth: 0
   currentDamage: 0
+  isDead: 0
   despawnDistance: 20
 --- !u!1 &1574868631
 GameObject:
