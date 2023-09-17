@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4917566115640818295}
   - component: {fileID: 4917566115640818292}
   - component: {fileID: 4917566115640818291}
+  - component: {fileID: 987405716860842483}
+  - component: {fileID: 3423147358993191099}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -133,9 +135,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae9deb745e878bb49a7f4732240fa7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: cd1c7c2e40e5c544686b63d3b176bc75, type: 2}
+  enemyData: {fileID: 11400000, guid: dccf1a70ec97e6d419ee0dc6bf6e6f18, type: 2}
   currentMoveSpeed: 0
   currentHealth: 0
   currentDamage: 0
   isDead: 0
   despawnDistance: 20
+--- !u!114 &987405716860842483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917566115640818296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c28a009fb84aa8408ab05effe46637c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - name: Blue Gem
+    itemPrefab: {fileID: 1611009847028613861, guid: 27e4ff75c98194b43b9b8e320bf41cba, type: 3}
+    dropRate: 70
+--- !u!61 &3423147358993191099
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4917566115640818296}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.033589542, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1.875, y: 1.9042969}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.85687935, y: 1}
+  m_EdgeRadius: 0

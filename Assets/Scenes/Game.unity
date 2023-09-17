@@ -828,6 +828,15 @@ MonoBehaviour:
   waves:
   - waveName: Wave 1
     enemyGroups:
+    - enemyName: Worm
+      enemyCount: 20
+      spawnCount: 0
+      enemyPrefab: {fileID: 4917566115640818296, guid: 363bbaaf0ff5d244a9f2ad730be694be, type: 3}
+    waveQuota: 0
+    spawnInterval: 3
+    spawnCount: 0
+  - waveName: Wave 2
+    enemyGroups:
     - enemyName: Bat
       enemyCount: 3
       spawnCount: 0
@@ -2361,8 +2370,8 @@ SpriteRenderer:
   m_SortingLayerID: -2144180807
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f75349a286817b6479976a10636d3b2c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d59f158d902389043a1236e952906a5e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9411765}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8354af90658fa984495e7be309fc3bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faceDir: {x: 0, y: 0, z: 0}
 --- !u!114 &-1579414871934811500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +165,7 @@ MonoBehaviour:
   currentMoveSpeed: 0
   currentHealth: 0
   currentDamage: 0
+  isDead: 0
   despawnDistance: 20
 --- !u!114 &350105774770120880
 MonoBehaviour:
@@ -180,4 +182,4 @@ MonoBehaviour:
   drops:
   - name: Blue Gem
     itemPrefab: {fileID: 1611009847028613861, guid: 27e4ff75c98194b43b9b8e320bf41cba, type: 3}
-    dropRate: 100
+    dropRate: 20
