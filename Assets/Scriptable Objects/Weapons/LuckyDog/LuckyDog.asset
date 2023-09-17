@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bb9463376b88b04b903bc923e0cf058, type: 3}
+  m_Name: LuckyDog
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2803702332969457894, guid: ab2609e999c3e1943aa9ed5f3be2fb98, type: 3}
+  damage: 5
+  speed: 10
+  cooldownDuration: 8
+  pierce: 99
+  level: 1
+  nextLevelPrefab: {fileID: 0}
+  name: "\u6B6A\u5934\u5410\u820C\u72AC"
+  description: "\u4E00\u4E2A\u53EF\u4EE5\u81EA\u52A8\u653B\u51FB\u654C\u4EBA\u7684\u72D7\uFF08\u53EF\u6295\u5582\uFF09"
+  icon: {fileID: 21300000, guid: d31508d079b08b445b625fccd03f4077, type: 3}
