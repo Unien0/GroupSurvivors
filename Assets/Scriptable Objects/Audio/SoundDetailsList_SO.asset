@@ -15,6 +15,6 @@ MonoBehaviour:
   soundDetailsList:
   - soundName: 0
     soundClip: {fileID: 0}
-    soundPitchMin: 0.1
-    soundPitchMax: 0.1
-    soundVolume: 0.1
+    soundPitchMin: 1
+    soundPitchMax: 1
+    soundVolume: 0.5

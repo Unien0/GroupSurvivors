@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
+
 
 public class AudioManager : MonoBehaviour
 {
@@ -18,37 +20,47 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        //EventHandler.AfterSceneLoadedEvent += OnAfterSceneLoadedEvent;
+        EventHandler.AfterSceneLoadedEvent += OnAfterSceneLoadedEvent;
+        EventHandler.PlaySoundEvent += OnPlaySoundEvent;
     }
+
     private void OnDisable()
     {
-        //EventHandler.AfterSceneLoadedEvent -= OnAfterSceneLoadedEvent;
+        EventHandler.AfterSceneLoadedEvent -= OnAfterSceneLoadedEvent;
+        EventHandler.PlaySoundEvent -= OnPlaySoundEvent;
     }
 
-    //private void OnAfterSceneLoadedEvent()
-    //{
-    //    string currentScene = SceneManager.GetActiveScene().name;
+    private void OnPlaySoundEvent(SoundName soundName)
+    {
+        var soundDetails = soundDetailsData.GetSoundDetails(soundName);
+        if (soundDetails != null)
+            EventHandler.CallInitSoundEffect(soundDetails);
+    }
 
-    //    SceneSoundItem sceneSound = sceneSoundData.GetSceneSoundItem(currentScene);
+    private void OnAfterSceneLoadedEvent()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
 
-    //    if (sceneSound == null)
-    //        return;
+        SceneSoundItem sceneSound = sceneSoundData.GetSceneSoundItem(currentScene);
 
-    //    SoundDetails ambient = soundDetailsData.GetSoundDetails(sceneSound.ambient);
-    //    SoundDetails music = soundDetailsData.GetSoundDetails(sceneSound.music);
+        if (sceneSound == null)
+            return;
 
-    //    PlayerAmbientClip(ambient);
-    //    PlayerMusicClip(music);
+        SoundDetails ambient = soundDetailsData.GetSoundDetails(sceneSound.ambient);
+        SoundDetails music = soundDetailsData.GetSoundDetails(sceneSound.music);
 
-    //    //if (soundRoutine != null)
-    //    //{
-    //    //    StopCoroutine(soundRoutine);
-    //    //}
-    //    //else
-    //    //{
-    //    //    soundRoutine = StartCoroutine(PlaySoundRoutine(music, ambient));
-    //    //}
-    //}
+        PlayerAmbientClip(ambient);
+        PlayerMusicClip(music);
+
+        //if (soundRoutine != null)
+        //{
+        //    StopCoroutine(soundRoutine);
+        //}
+        //else
+        //{
+        //    soundRoutine = StartCoroutine(PlaySoundRoutine(music, ambient));
+        //}
+    }
 
     /// <summary>
     /// 播放背景音乐

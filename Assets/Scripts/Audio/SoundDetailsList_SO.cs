@@ -33,4 +33,6 @@ public enum SoundName
     //挥砍，射击
     MusicCalm,
     //BGM1
+
+    //环境音
 }
