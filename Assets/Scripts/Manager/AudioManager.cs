@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
     [Header("音乐数据库")]
     public SoundDetailsList_SO soundDetailsData;
@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Mixer")]
     public AudioMixer audioMixer;
 
+    //AudioMixer中的音频状态
     [Header("Snapshots")]
     public AudioMixerSnapshot normalSnapShot;
     public AudioMixerSnapshot muteSnapShot;
@@ -41,6 +42,10 @@ public class AudioManager : MonoBehaviour
         EventHandler.PlaySoundEvent -= OnPlaySoundEvent;
     }
 
+    /// <summary>
+    /// 设置播放事件
+    /// </summary>
+    /// <param name="soundName"></param>
     private void OnPlaySoundEvent(SoundName soundName)
     {
         var soundDetails = soundDetailsData.GetSoundDetails(soundName);
@@ -48,21 +53,30 @@ public class AudioManager : MonoBehaviour
             EventHandler.CallInitSoundEffect(soundDetails);
     }
 
+    /// <summary>
+    /// 设置场景BGM播放事件
+    /// </summary>
     private void OnAfterSceneLoadedEvent()
     {
+        //当相关场景启动时
         string currentScene = SceneManager.GetActiveScene().name;
 
+        //获取相应场景音乐
         SceneSoundItem sceneSound = sceneSoundData.GetSceneSoundItem(currentScene);
 
+        //防止报空
         if (sceneSound == null)
             return;
 
+        //读取相应环境音和BGM
         SoundDetails ambient = soundDetailsData.GetSoundDetails(sceneSound.ambient);
         SoundDetails music = soundDetailsData.GetSoundDetails(sceneSound.music);
 
+        //设置音乐渐入效果
         PlayerAmbientClip(ambient,0.5f);
         PlayerMusicClip(music,musicTransitionSecond);
 
+        ////延迟播放相关
         //if (soundRoutine != null)
         //{
         //    StopCoroutine(soundRoutine);
@@ -79,6 +93,7 @@ public class AudioManager : MonoBehaviour
     /// <param name="soundDetails"></param>
     private void PlayerMusicClip(SoundDetails soundDetails , float transitionTime)
     {
+        //获取AudioMixer的相应音轨
         audioMixer.SetFloat("MusicVolume", ConertSoundVolume(soundDetails.soundVolume));
         gameSource.clip = soundDetails.soundClip;
         if (gameSource.isActiveAndEnabled)
@@ -99,8 +114,6 @@ public class AudioManager : MonoBehaviour
             gameSource.Play();
 
         normalSnapShot.TransitionTo(transitionTime);
-
-
     }
 
     //延迟播放携程

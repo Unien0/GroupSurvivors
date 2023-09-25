@@ -12,14 +12,14 @@ public static class EventHandler
         AfterSceneLoadedEvent?.Invoke();
     }
 
-    //音效从对象池生成播放事件
+    //音效从对象池生成播放事件，初始化音效
     public static event Action<SoundDetails> InitSoundEffect;
     public static void CallInitSoundEffect(SoundDetails soundDetails)
     {
         InitSoundEffect?.Invoke(soundDetails);
     }
 
-    //呼叫播放事件
+    //呼叫播放事件，播放音效
     public static event Action<SoundName> PlaySoundEvent;
     public static void CallPlaySoundEvent(SoundName soundName)
     {
