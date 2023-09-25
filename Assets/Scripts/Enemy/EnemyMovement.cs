@@ -24,7 +24,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void Move()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.currentMoveSpeed * Time.deltaTime);    //敌人持续靠近玩家
+        if(!enemy.isDead)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, enemy.currentMoveSpeed * Time.deltaTime);    //敌人持续靠近玩家
+        }
+       
     }
     /// <summary>
     /// 敌人转向逻辑
