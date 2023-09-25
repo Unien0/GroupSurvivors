@@ -87,7 +87,7 @@ AnimationClip:
   - time: 0.7
     functionName: Kill
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: ae9deb745e878bb49a7f4732240fa7c4, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

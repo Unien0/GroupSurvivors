@@ -5378,7 +5378,7 @@ MonoBehaviour:
     m_Bits: 64
   currentChunk: {fileID: 0}
   spawnedChunks: []
-  maxOpDist: 50
+  maxOpDist: 100
   optimizerCooldownDur: 1
 --- !u!4 &1097804680
 Transform:
