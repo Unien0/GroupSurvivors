@@ -18,6 +18,17 @@ public class AudioManager : MonoBehaviour
     //public float MusicStartSecond => Random.Range(5f,15f);
     //private Coroutine soundRoutine;
 
+    [Header("Audio Mixer")]
+    public AudioMixer audioMixer;
+
+    [Header("Snapshots")]
+    public AudioMixerSnapshot normalSnapShot;
+    public AudioMixerSnapshot muteSnapShot;
+
+    //设置音乐过度时间
+    private float musicTransitionSecond = 3f;
+
+
     private void OnEnable()
     {
         EventHandler.AfterSceneLoadedEvent += OnAfterSceneLoadedEvent;
@@ -49,8 +60,8 @@ public class AudioManager : MonoBehaviour
         SoundDetails ambient = soundDetailsData.GetSoundDetails(sceneSound.ambient);
         SoundDetails music = soundDetailsData.GetSoundDetails(sceneSound.music);
 
-        PlayerAmbientClip(ambient);
-        PlayerMusicClip(music);
+        PlayerAmbientClip(ambient,0.5f);
+        PlayerMusicClip(music,musicTransitionSecond);
 
         //if (soundRoutine != null)
         //{
@@ -66,22 +77,30 @@ public class AudioManager : MonoBehaviour
     /// 播放背景音乐
     /// </summary>
     /// <param name="soundDetails"></param>
-    private void PlayerMusicClip(SoundDetails soundDetails)
+    private void PlayerMusicClip(SoundDetails soundDetails , float transitionTime)
     {
+        audioMixer.SetFloat("MusicVolume", ConertSoundVolume(soundDetails.soundVolume));
         gameSource.clip = soundDetails.soundClip;
         if (gameSource.isActiveAndEnabled)
             gameSource.Play();
+
+        normalSnapShot.TransitionTo(transitionTime);
     }
 
     /// <summary>
     /// 播放环境音
     /// </summary>
     /// <param name="soundDetails"></param>
-    private void PlayerAmbientClip(SoundDetails soundDetails)
+    private void PlayerAmbientClip(SoundDetails soundDetails, float transitionTime)
     {
+        audioMixer.SetFloat("AmbientVolume", ConertSoundVolume(soundDetails.soundVolume));
         ambientSource.clip = soundDetails.soundClip;
         if (gameSource.isActiveAndEnabled)
             gameSource.Play();
+
+        normalSnapShot.TransitionTo(transitionTime);
+
+
     }
 
     //延迟播放携程
@@ -94,4 +113,10 @@ public class AudioManager : MonoBehaviour
     //        PlayerMusicClip(music);
     //    }
     //}
+
+    //将音乐的音量调整成（-80,20）的范围区间
+    private float ConertSoundVolume(float amount)
+    {
+        return (amount * 100 - 80);
+    }
 }
