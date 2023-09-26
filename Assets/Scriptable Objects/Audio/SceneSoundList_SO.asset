@@ -16,3 +16,6 @@ MonoBehaviour:
   - sceneName: Game
     ambient: 0
     music: 3
+  - sceneName: Menu
+    ambient: 0
+    music: 4

@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: SoundDetailsList_SO
   m_EditorClassIdentifier: 
   soundDetailsList:
-  - soundName: 0
-    soundClip: {fileID: 0}
+  - soundName: 3
+    soundClip: {fileID: 8300000, guid: 14a1cf915de1c2448b200ab123c01445, type: 3}
     soundPitchMin: 1
     soundPitchMax: 1
-    soundVolume: 0.5
+    soundVolume: 0.8
+  - soundName: 4
+    soundClip: {fileID: 8300000, guid: d9e280ca0b9d3ad4f83da6d4defd2c91, type: 3}
+    soundPitchMin: 1
+    soundPitchMax: 1
+    soundVolume: 0.8

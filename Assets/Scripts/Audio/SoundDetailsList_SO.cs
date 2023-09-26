@@ -31,8 +31,8 @@ public enum SoundName
     none,
     Slash,Shoot,
     //挥砍，射击
-    MusicCalm,
-    //BGM1
+    MusicCalm,MenuMusic
+    //BGM1，菜单音乐
 
     //环境音
 }
