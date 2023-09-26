@@ -8,6 +8,7 @@ public class KnifeBehaviour : ProjectileWeaponBehaviour
     protected override void Start()
     {
         base.Start();
+        EventHandler.CallPlaySoundEvent(SoundName.Shoot);
     }
 
     void Update()
