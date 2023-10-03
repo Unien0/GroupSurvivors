@@ -29,10 +29,14 @@ public class SoundDetails
 public enum SoundName
 {
     none,
-    Slash,Shoot,
+    Button1, Button2, Button3,
+    //按钮1，按钮2，按钮3
+    Slash, Shoot,
     //挥砍，射击
-    MusicCalm,MenuMusic
+    MusicCalm,MenuMusic,
     //BGM1，菜单音乐
 
     //环境音
+    ExperienceGem, HealthPotion,
+    //经验球,治疗瓶
 }

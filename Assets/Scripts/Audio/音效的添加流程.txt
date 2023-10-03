@@ -1,0 +1,10 @@
+﻿音效添加流程：
+
+1、找到适合的音效
+2、在【SoundDetailsList_SO】的29行【enum SoundName】中添加相应的音效名称
+3、在【Scriptable Objects】的【Audio】中的【SoundDetailsList_SO】里添加新的音效项目，
+并且调整音调浮动值与音量，！！记住一定要更改成相应的SoundName！！
+有时候【enum SoundName】的添加可能会导致【SoundDetailsList_SO】中名称的错位，请注意修正
+4、在需要播放音效的地方添加代码：
+EventHandler.CallPlaySoundEvent(SoundName.xxxx);
+xxxx为SoundName，在代码读到这里时即可播放音效

@@ -8,10 +8,12 @@ public class BobbingAnimation : MonoBehaviour
     public float magnitude;
     public Vector3 direction;
     Vector3 initialPosition;
+    Pickup pickup;
 
     // Start is called before the first frame update
     void Start()
     {
+        pickup = GetComponent<Pickup>();
         initialPosition = transform.position;
 
     }
@@ -19,6 +21,10 @@ public class BobbingAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = initialPosition + direction * Mathf.Sin(Time.time * frequency) * magnitude;
+        if (pickup && !pickup .hasBeenCollected)
+        {
+            transform.position = initialPosition + direction * Mathf.Sin(Time.time * frequency) * magnitude;
+
+        }
     }
 }

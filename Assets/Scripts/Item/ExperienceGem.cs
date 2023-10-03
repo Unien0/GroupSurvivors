@@ -19,6 +19,7 @@ public class ExperienceGem : Pickup,Icollectible
         }
         PlayerStats player = FindObjectOfType<PlayerStats>();
         player.IncreaseExperience(experienceGranted);
+        EventHandler.CallPlaySoundEvent(SoundName.ExperienceGem);
         //Destroy(gameObject);
     }
     

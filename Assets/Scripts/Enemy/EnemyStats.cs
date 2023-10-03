@@ -61,6 +61,7 @@ public class EnemyStats : MonoBehaviour
 
     public void Kill()
     {
+
         Destroy(this.gameObject);
     }
 

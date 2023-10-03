@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
             previousState = currentstate;
             ChangeState(GameState.Paused);
             pauseScreen.SetActive(true);
+            EventHandler.CallPlaySoundEvent(SoundName.Button1);
             Time.timeScale = 0f;
             Debug.Log("Game is paused");
         }
@@ -130,6 +131,7 @@ public class GameManager : MonoBehaviour
             ChangeState(previousState);
             Time.timeScale = 1f;
             pauseScreen.SetActive(false);
+            EventHandler.CallPlaySoundEvent(SoundName.Button3);
             Debug.Log("Game is resumed");
         }
     }

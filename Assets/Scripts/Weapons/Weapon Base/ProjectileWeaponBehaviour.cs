@@ -45,6 +45,7 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
     {
         direction = dir;
 
+        //调整子弹朝向和图像方向
         float dirx = direction.x;
         float diry = direction.y;
 

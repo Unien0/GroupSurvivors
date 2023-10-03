@@ -13,7 +13,7 @@ public class KnifeController : WeaponController
     {
         base.Attack();
         GameObject spawnedKnife = Instantiate(weaponData.Prefab);//生成投掷物
-        spawnedKnife.transform.position = transform.position; //Assign the position to be the same as this object which is parented to the player
-        spawnedKnife.GetComponent<KnifeBehaviour>().DirectionChecker(pm.lastMovedVector);   //Reference and set the direction
+        spawnedKnife.transform.position = transform.position; //将位置指定为与该玩家的父对象相同
+        spawnedKnife.GetComponent<KnifeBehaviour>().DirectionChecker(pm.lastMovedVector);   //参考并设置方向
     }
 }

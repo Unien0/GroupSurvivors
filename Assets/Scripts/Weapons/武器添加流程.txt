@@ -1,0 +1,10 @@
+﻿武器的添加流程：
+
+武器的制作分成Controller（控制器）和Behaviour（行为），分别继承对应的Controller和Behaviour父物体
+1、添加相应的图片，制作Prefab。此处应该制作两个Prefab，Controller控制器和Behaviour行为的，分别用于在Player下添加子物体和生成后的物体
+2、在相应的子物体中添加对应的脚本
+3、制作相应的SO文件
+4、在Behaviour脚本子物体中添加武器相应的动作，比如直线发射子弹，对鼠标发射，环绕物等等
+5、利用重写（override）来覆盖父物体方法的行为，比如朝鼠标发射可以修改射击方向
+6、添加攻击音效，EventHandler.CallPlaySoundEvent(SoundName.xxxx);
+7、调试并检查，就完成

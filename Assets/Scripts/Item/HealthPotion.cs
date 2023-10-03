@@ -19,5 +19,6 @@ public class HealthPotion : Pickup
         }
         PlayerStats player = FindObjectOfType<PlayerStats>();
         player.RestoreHealth(healthToRestore);
+        EventHandler.CallPlaySoundEvent(SoundName.HealthPotion);
     }
 }
