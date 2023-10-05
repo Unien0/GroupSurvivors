@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6840769290208156918}
   - component: {fileID: 8601385756518045803}
   m_Layer: 0
-  m_Name: Shield Controler
+  m_Name: Surround Controler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
