@@ -8504,19 +8504,19 @@ MonoBehaviour:
   upgradeUIOptions:
   - upgradeNameDisplay: {fileID: 86922660}
     upgradeDescriptionDisplay: {fileID: 1214595109}
-    upgradeIcon: {fileID: 82321089}
+    upgradeIcon: {fileID: 438706062}
     upgradeButton: {fileID: 798546284}
   - upgradeNameDisplay: {fileID: 895659505}
     upgradeDescriptionDisplay: {fileID: 736803141}
-    upgradeIcon: {fileID: 635073768}
+    upgradeIcon: {fileID: 1833662726}
     upgradeButton: {fileID: 2029126853}
   - upgradeNameDisplay: {fileID: 1519657816}
     upgradeDescriptionDisplay: {fileID: 1645613244}
-    upgradeIcon: {fileID: 733393942}
+    upgradeIcon: {fileID: 1147714970}
     upgradeButton: {fileID: 884212087}
   - upgradeNameDisplay: {fileID: 1797277657}
     upgradeDescriptionDisplay: {fileID: 379241526}
-    upgradeIcon: {fileID: 1672176190}
+    upgradeIcon: {fileID: 2030948291}
     upgradeButton: {fileID: 1466206433}
 --- !u!1 &1619922103
 GameObject:
