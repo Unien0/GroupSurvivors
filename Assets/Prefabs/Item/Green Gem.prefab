@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7029809882454380476}
   - component: {fileID: 9153717135605659410}
   - component: {fileID: -7191904240278655329}
-  - component: {fileID: 8096274911340164253}
   - component: {fileID: -9215402916763408670}
   - component: {fileID: 3693117101256070685}
+  - component: {fileID: -5009965329474398287}
   m_Layer: 0
   m_Name: Green Gem
   m_TagString: Untagged
@@ -104,20 +104,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.328125
---- !u!114 &8096274911340164253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611009847028613861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7195c931e3bbcd478a2442780760fe0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBeenCollected: 0
-  experienceGranted: 75
 --- !u!50 &-9215402916763408670
 Rigidbody2D:
   serializedVersion: 4
@@ -154,3 +140,17 @@ MonoBehaviour:
   frequency: 3
   magnitude: 0.1
   direction: {x: 0, y: 1, z: 0}
+--- !u!114 &-5009965329474398287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611009847028613861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7195c931e3bbcd478a2442780760fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasBeenCollected: 0
+  experienceGranted: 80

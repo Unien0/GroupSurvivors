@@ -8889,7 +8889,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -1366411266917210455, guid: 7dbccb633a4df2948afeaa4aa30772e3, type: 2}
   m_audioClip: {fileID: 8300000, guid: ac81e521cc4fffd4cb560d4ddc70d306, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10370,7 +10370,7 @@ MonoBehaviour:
   - {fileID: 1269783493}
   - {fileID: 1022315442}
   - {fileID: 955125732}
-  timeLimit: 75
+  timeLimit: 60
   stopwatchDisplay: {fileID: 1391083911}
   isGameOver: 0
   choosingUpgrade: 0

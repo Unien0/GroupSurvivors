@@ -39,4 +39,6 @@ public enum SoundName
     //环境音
     ExperienceGem, HealthPotion,
     //经验球,治疗瓶
+    Injured01
+    //受伤01
 }

@@ -243,7 +243,7 @@ public class PlayerStats : MonoBehaviour
         if (!isInvincible)
         {
             CurrentHealth -= dmg;
-
+            EventHandler.CallPlaySoundEvent(SoundName.Injured01);
             invincibilityTimer = invincibilityDuration;
             isInvincible = true;
             if (CurrentHealth <= 0)

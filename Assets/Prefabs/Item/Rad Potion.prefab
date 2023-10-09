@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5059826916385656304}
   - component: {fileID: 4253318684044033502}
   - component: {fileID: 3808803962975892396}
-  - component: {fileID: 8800683641934517788}
   - component: {fileID: 5827837914396141545}
   - component: {fileID: -5894487504138492281}
+  - component: {fileID: 4010740990206698036}
   m_Layer: 0
   m_Name: Rad Potion
   m_TagString: Untagged
@@ -114,20 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.40625, y: 0.59375}
   m_EdgeRadius: 0
---- !u!114 &8800683641934517788
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6416316478777729602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afc2c1d9377f2742a63c13c84f2df21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasBeenCollected: 0
-  healthToRestore: 100
 --- !u!50 &5827837914396141545
 Rigidbody2D:
   serializedVersion: 4
@@ -164,3 +150,17 @@ MonoBehaviour:
   frequency: 3
   magnitude: 0.1
   direction: {x: 0, y: 1, z: 0}
+--- !u!114 &4010740990206698036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416316478777729602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afc2c1d9377f2742a63c13c84f2df21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasBeenCollected: 0
+  healthToRestore: 100
