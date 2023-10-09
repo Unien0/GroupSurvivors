@@ -23,7 +23,7 @@ public class LuckyDogBehaviour : ProjectileWeaponBehaviour
             FindNearestEnemy();
         }
     }
-    void FindNearestEnemy()
+    void FindNearestEnemy()//寻找最近的敌人
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); // 根据需要修改标签
 

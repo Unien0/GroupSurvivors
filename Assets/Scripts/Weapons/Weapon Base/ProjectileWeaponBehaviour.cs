@@ -93,11 +93,11 @@ public class ProjectileWeaponBehaviour : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D col)
     {
-        //Reference the script from the collided collider and deal damage using TakeDamage()
-        if(col.CompareTag("Enemy"))
+        //引用碰撞碰撞器中的脚本并使用TakeDamage（）造成伤害
+        if (col.CompareTag("Enemy"))
         {
             EnemyStats enemy = col.GetComponent<EnemyStats>();
-            enemy.TakeDamage(GetCurrentDamge());    //Make sure to use currentDamage instead of weaponData.Damage in case any damage multipliers in the future
+            enemy.TakeDamage(GetCurrentDamge());    //请确保使用currentDamage而不是weaponData。如果未来出现任何伤害乘数，请使用Damage
             ReducePierce();
         }
         else if (col.CompareTag("Prop"))

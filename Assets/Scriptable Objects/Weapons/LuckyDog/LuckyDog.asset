@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: LuckyDog
   m_EditorClassIdentifier: 
   prefab: {fileID: 2803702332969457894, guid: ab2609e999c3e1943aa9ed5f3be2fb98, type: 3}
-  damage: 5
-  speed: 10
-  cooldownDuration: 8
+  damage: 1
+  speed: 3
+  cooldownDuration: 4
   pierce: 99
   level: 1
   nextLevelPrefab: {fileID: 0}
