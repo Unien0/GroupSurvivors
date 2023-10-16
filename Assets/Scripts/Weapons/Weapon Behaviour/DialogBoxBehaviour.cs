@@ -15,7 +15,7 @@ public class DialogBoxBehaviour : ProjectileWeaponBehaviour
         mouseTargetPosition = Input.mousePosition;
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(mouseTargetPosition.x, mouseTargetPosition.y, 
             Camera.main.transform.position.z));
-        Vector3 bulletDirection = (worldMousePosition - transform.position).normalized;
+        bulletDirection = (worldMousePosition - transform.position).normalized;
 
         EventHandler.CallPlaySoundEvent(SoundName.Shoot);//播放音效
     }
