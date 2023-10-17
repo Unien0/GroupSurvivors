@@ -1,18 +1,19 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WMineController : MonoBehaviour
+public class WMineController : WeaponController
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Attack()
     {
-        
+        base.Attack();
+        GameObject spawnedKnife = Instantiate(weaponData.Prefab);//生成投掷物
+        spawnedKnife.transform.position = transform.position; //将位置指定为与该玩家的父对象相同
+        //spawnedKnife.GetComponent<WMineBehaciour>().DirectionChecker(pm.lastMovedVector);   //参考并设置方向
     }
 }

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb9463376b88b04b903bc923e0cf058, type: 3}
   m_Name: SpearWeaponScriptableObject
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 2803702332969457894, guid: 5f4a2235b9141064ba86122e3b7c6764, type: 3}
   damage: 0
   speed: 0
   cooldownDuration: 0
   pierce: 0
   level: 0
   nextLevelPrefab: {fileID: 0}
-  name: 
-  description: 
-  icon: {fileID: 0}
+  name: "\u957F\u77DB"
+  description: "\u53EA\u523A\u4E00\u4E0B\uFF0C\u7EDD\u4E0D\u523A\u591A\u3002\u5BF9\u8DEF\u5F84\u4E0A\u654C\u4EBA\u9020\u6210\u4F24\u5BB3"
+  icon: {fileID: 16857369, guid: b651bce332e87474c9e4535a92fb6cb6, type: 3}
